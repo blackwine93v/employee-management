@@ -1,4 +1,4 @@
-import { IsString, IsEmail, IsPhoneNumber, IsIn, IsUrl, MinLength, MaxLength, IsAlpha } from 'class-validator';
+import { IsEmail, IsPhoneNumber, IsIn, IsUrl, MinLength, MaxLength, IsAlpha } from 'class-validator';
 
 export class CreateEmployeeDto {
   @IsAlpha()
@@ -19,9 +19,6 @@ export class CreateEmployeeDto {
 
   @IsIn(['M', 'F'])
   gender: string;
-
-  @IsString()
-  id: string;
 
   @IsUrl()
   photo: string;

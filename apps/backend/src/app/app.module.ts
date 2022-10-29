@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { EmployeeController } from '../employee/employee.controller';
-import { EmployeeService } from '../employee/employee.service';
+import { EmployeeModule } from '../employee/employee.module';
 import { EmployeeEntity } from '../employee/entities/employee.entity';
 
 import { AppController } from './app.controller';
@@ -19,8 +18,9 @@ import { AppService } from './app.service';
       entities: [EmployeeEntity],
       synchronize: true,
     }),
+    EmployeeModule,
   ],
-  controllers: [AppController, EmployeeController],
-  providers: [AppService, EmployeeService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
