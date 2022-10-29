@@ -12,7 +12,6 @@ export class EmployeeService {
     private employeeRepo: Repository<EmployeeEntity>
   ) {}
   create(createEmployeeDto: CreateEmployeeDto) {
-    console.log(createEmployeeDto);
     return this.employeeRepo.save(createEmployeeDto);
   }
 
@@ -33,7 +32,7 @@ export class EmployeeService {
       })
       .returning('*')
       .execute();
-    return data.raw[0];
+    return data.raw[0] as EmployeeEntity;
   }
 
   remove(id: string) {
