@@ -1,0 +1,18 @@
+.container {
+  background: red;
+  padding: 0;
+  margin: 14px auto;
+
+  .headerBox {
+    background: purple;
+    color: white;
+    font-weight: bold;
+    padding: 12px 24px;
+  }
+
+  .content {
+    background: white;
+    min-height: 700px;
+    border: solid 1px red;
+  }
+}

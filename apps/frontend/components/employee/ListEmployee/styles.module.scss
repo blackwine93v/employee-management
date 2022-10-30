@@ -1,0 +1,31 @@
+.container {
+  .addButton {
+    background: purple;
+    border-radius: 16px;
+    color: white;
+    margin-right: 12px;
+  }
+
+  .headerBox {
+    text-align: right;
+    margin: 20px 0px;
+  }
+}
+
+.gridView {}
+
+.tableView {
+  .header {
+    background: green;
+    .headerText {
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  .editButton {
+    background: grey;
+    color: white;
+    margin-right: 10px;
+  }
+}

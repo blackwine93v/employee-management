@@ -10,7 +10,7 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": [],
+            "allow": ["apps/frontend", "apps/backend"],
             "depConstraints": [
               {
                 "sourceTag": "*",
