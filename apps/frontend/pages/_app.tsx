@@ -1,15 +1,19 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import store from '../redux/store';
+import { Provider } from 'react-redux';
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to frontend!</title>
+        <title>Employee Manager</title>
       </Head>
       <main className="app">
-        <Component {...pageProps} />
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
       </main>
     </>
   );
