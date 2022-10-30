@@ -2,23 +2,24 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { CreateEmployeeDto } from '../models/CreateEmployeeDto';
+import type { EmployeeEntity } from '../models/EmployeeEntity';
 import type { UpdateEmployeeDto } from '../models/UpdateEmployeeDto';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 
-export class DefaultService {
+export class EmployeeService {
 
     constructor(public readonly httpRequest: BaseHttpRequest) {}
 
     /**
      * @param requestBody
-     * @returns any
+     * @returns EmployeeEntity
      * @throws ApiError
      */
     public employeeControllerCreate(
         requestBody: CreateEmployeeDto,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<EmployeeEntity> {
         return this.httpRequest.request({
             method: 'POST',
             url: '/api/employee',
@@ -28,10 +29,10 @@ export class DefaultService {
     }
 
     /**
-     * @returns any
+     * @returns EmployeeEntity
      * @throws ApiError
      */
-    public employeeControllerFindAll(): CancelablePromise<any> {
+    public employeeControllerFindAll(): CancelablePromise<Array<EmployeeEntity>> {
         return this.httpRequest.request({
             method: 'GET',
             url: '/api/employee',
@@ -40,12 +41,12 @@ export class DefaultService {
 
     /**
      * @param id
-     * @returns any
+     * @returns EmployeeEntity
      * @throws ApiError
      */
     public employeeControllerFindOne(
         id: string,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<EmployeeEntity> {
         return this.httpRequest.request({
             method: 'GET',
             url: '/api/employee/{id}',
@@ -58,13 +59,13 @@ export class DefaultService {
     /**
      * @param id
      * @param requestBody
-     * @returns any
+     * @returns EmployeeEntity
      * @throws ApiError
      */
     public employeeControllerUpdate(
         id: string,
         requestBody: UpdateEmployeeDto,
-    ): CancelablePromise<any> {
+    ): CancelablePromise<EmployeeEntity> {
         return this.httpRequest.request({
             method: 'PUT',
             url: '/api/employee/{id}',

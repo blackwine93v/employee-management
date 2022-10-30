@@ -10,6 +10,7 @@ export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
 export { CreateEmployeeDto } from './models/CreateEmployeeDto';
+export type { EmployeeEntity } from './models/EmployeeEntity';
 export type { UpdateEmployeeDto } from './models/UpdateEmployeeDto';
 
-export { DefaultService } from './services/DefaultService';
+export { EmployeeService } from './services/EmployeeService';
