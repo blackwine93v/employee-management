@@ -45,7 +45,7 @@ export class EmployeeService {
      * @throws ApiError
      */
     public employeeControllerFindOne(
-        id: string,
+        id: number,
     ): CancelablePromise<EmployeeEntity> {
         return this.httpRequest.request({
             method: 'GET',
@@ -63,7 +63,7 @@ export class EmployeeService {
      * @throws ApiError
      */
     public employeeControllerUpdate(
-        id: string,
+        id: number,
         requestBody: UpdateEmployeeDto,
     ): CancelablePromise<EmployeeEntity> {
         return this.httpRequest.request({
@@ -83,7 +83,7 @@ export class EmployeeService {
      * @throws ApiError
      */
     public employeeControllerRemove(
-        id: string,
+        id: number,
     ): CancelablePromise<any> {
         return this.httpRequest.request({
             method: 'DELETE',

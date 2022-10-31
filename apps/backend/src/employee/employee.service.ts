@@ -19,11 +19,11 @@ export class EmployeeService {
     return this.employeeRepo.find();
   }
 
-  findOne(id: string) {
+  findOne(id: number) {
     return this.employeeRepo.findOneBy({ id });
   }
 
-  async update(id: string, updateEmployeeDto: UpdateEmployeeDto) {
+  async update(id: number, updateEmployeeDto: UpdateEmployeeDto) {
     const data = await this.employeeRepo
       .createQueryBuilder()
       .update(updateEmployeeDto)
@@ -35,7 +35,7 @@ export class EmployeeService {
     return data.raw[0] as EmployeeEntity;
   }
 
-  remove(id: string) {
+  remove(id: number) {
     return this.employeeRepo.delete({ id });
   }
 }

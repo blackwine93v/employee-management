@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsPhoneNumber, IsUrl, MinLength, MaxLength, IsAlpha, IsEnum } from 'class-validator';
+import { IsEmail, IsPhoneNumber, MinLength, MaxLength, IsAlpha, IsEnum } from 'class-validator';
 
 enum Gender {
   M = 'M',

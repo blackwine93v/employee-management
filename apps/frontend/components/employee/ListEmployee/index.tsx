@@ -22,12 +22,12 @@ function ListEmployee({ employees }: Props) {
   const { enqueueSnackbar } = useSnackbar();
   const router = useRouter();
   const handleDelete = React.useCallback(
-    async (employeeId: string) => {
+    async (employeeId: number) => {
       try {
         if (confirm('Delete this employee?')) {
           await dispatch(deleteEmployee(employeeId)).unwrap();
+          enqueueSnackbar('Deleted successfully', { variant: 'success' });
         }
-        enqueueSnackbar('Deleted successfully', { variant: 'success' });
       } catch (e) {
         enqueueSnackbar('Failed to delete this employee', { variant: 'error' });
       }
@@ -36,7 +36,7 @@ function ListEmployee({ employees }: Props) {
   );
 
   const handleEdit = React.useCallback(
-    (employeeId: string) => {
+    (employeeId: number) => {
       if (employeeId) {
         router.push(`/employee/edit/${employeeId}`);
       }

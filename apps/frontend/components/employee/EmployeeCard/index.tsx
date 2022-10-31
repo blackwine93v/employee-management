@@ -16,8 +16,8 @@ import { getPhotoURL } from 'apps/frontend/helpers/utils';
 
 interface Props {
   employee: EmployeeEntity;
-  onEdit: (employeeId: string) => void;
-  onDelete: (employeeId: string) => void;
+  onEdit: (employeeId: number) => void;
+  onDelete: (employeeId: number) => void;
 }
 
 function EmployeeCard({ employee, onDelete, onEdit }: Props) {

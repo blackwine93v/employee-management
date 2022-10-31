@@ -18,8 +18,8 @@ import { getPhotoURL } from 'apps/frontend/helpers/utils';
 
 interface Props {
   employees: EmployeeEntity[];
-  onEdit: (employeeId: string) => void;
-  onDelete: (employeeId: string) => void;
+  onEdit: (employeeId: number) => void;
+  onDelete: (employeeId: number) => void;
 }
 
 function TableViewEmployee({ employees, onDelete, onEdit }: Props) {

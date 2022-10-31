@@ -24,7 +24,7 @@ export const addEmployee = createAsyncThunk(
 
 export const updateEmployee = createAsyncThunk(
   'employee/update',
-  async (data: { employeeId: string; updateFields: UpdateEmployeeDto }) => {
+  async (data: { employeeId: number; updateFields: UpdateEmployeeDto }) => {
     const response = await apiClient.employee.employeeControllerUpdate(
       data.employeeId,
       data.updateFields
@@ -35,7 +35,7 @@ export const updateEmployee = createAsyncThunk(
 
 export const deleteEmployee = createAsyncThunk(
   'employee/delete',
-  async (employeeId: string) => {
+  async (employeeId: number) => {
     await apiClient.employee.employeeControllerRemove(employeeId);
     return employeeId;
   }

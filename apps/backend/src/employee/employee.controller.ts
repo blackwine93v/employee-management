@@ -32,14 +32,14 @@ export class EmployeeController {
 
   @ApiOkResponse({ type: EmployeeEntity })
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.employeeService.findOne(id);
   }
 
   @ApiOkResponse({ type: EmployeeEntity })
   @Put(':id')
   update(
-    @Param('id') id: string,
+    @Param('id') id: number,
     @Body() updateEmployeeDto: UpdateEmployeeDto
   ) {
     return this.employeeService.update(id, updateEmployeeDto);
@@ -47,7 +47,7 @@ export class EmployeeController {
 
   @ApiOkResponse()
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     this.employeeService.remove(id);
   }
 }

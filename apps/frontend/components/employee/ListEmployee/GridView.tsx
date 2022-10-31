@@ -5,8 +5,8 @@ import { EmployeeEntity } from 'apps/frontend/openapi';
 
 interface Props {
   employees: EmployeeEntity[];
-  onEdit: (employeeId: string) => void;
-  onDelete: (employeeId: string) => void;
+  onEdit: (employeeId: number) => void;
+  onDelete: (employeeId: number) => void;
 }
 
 function GridEmployee({ employees, onDelete, onEdit }: Props) {

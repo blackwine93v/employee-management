@@ -25,16 +25,20 @@ export type EmployeeFormStateValues = {
   lastname: string;
   email: string;
   phone: string;
-  number: string;
   gender: string;
-}
+};
 
 interface Props {
   buttonText: string;
-  onSubmit: (values: EmployeeFormStateValues) => void
+  onSubmit: (values: EmployeeFormStateValues) => void;
+  values?: EmployeeFormStateValues;
 }
 
-const renderTextField = (fieldName: keyof EmployeeFormStateValues, fieldLabel: string, validate) => (
+const renderTextField = (
+  fieldName: keyof EmployeeFormStateValues,
+  fieldLabel: string,
+  validate
+) => (
   <Field name={fieldName} validate={validate}>
     {({ input, meta }) => (
       <Box className={styles.fieldBox}>
@@ -69,18 +73,21 @@ const renderDropdownField = (fieldName, fieldLabel, validate) => (
   </Field>
 );
 
-function EmployeeForm({ buttonText, onSubmit }: Props) {
+function EmployeeForm({ buttonText, onSubmit, values }: Props) {
   return (
     <Paper className={styles.container}>
       <Form
         onSubmit={onSubmit}
-        initialValues={{
-          gender: 'M',
-          // lastname: 'lastname',
-          // firstname: 'firstname',
-          // email: 'aaaaaa@aaa.ccc',
-          // phone: '+94776633222'
-        } as EmployeeFormStateValues}
+        initialValues={
+          values ||
+          ({
+            gender: 'M',
+            // lastname: 'lastname',
+            // firstname: 'firstname',
+            // email: 'aaaaaa@aaa.ccc',
+            // phone: '+94776633222'
+          } as EmployeeFormStateValues)
+        }
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             {renderTextField(

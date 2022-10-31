@@ -1,2 +1,22 @@
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  .boxContent {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .buttonListView {
+      float: right;
+      color: white;
+      background: purple;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      width: 140px;
+    }
+  }
 }
