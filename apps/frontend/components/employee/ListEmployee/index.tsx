@@ -9,6 +9,8 @@ import { deleteEmployee } from 'apps/frontend/pages/employee/reduxSlice';
 import GridEmployee from './GridView';
 import TableViewEmployee from './TableView';
 import styles from './styles.module.scss';
+import { useRouter } from 'next/router';
+import { useSnackbar } from 'notistack';
 
 interface Props {
   employees: EmployeeEntity[];
@@ -17,18 +19,34 @@ interface Props {
 function ListEmployee({ employees }: Props) {
   const [isGridMode, setIsGridMode] = React.useState(true);
   const dispatch = useAppDispatch();
+  const { enqueueSnackbar } = useSnackbar();
+  const router = useRouter();
   const handleDelete = React.useCallback(
-    (employeeId: string) => {
-      if (confirm('Delete this employee?')) {
-        dispatch(deleteEmployee(employeeId));
+    async (employeeId: string) => {
+      try {
+        if (confirm('Delete this employee?')) {
+          await dispatch(deleteEmployee(employeeId)).unwrap();
+        }
+        enqueueSnackbar('Deleted successfully', { variant: 'success' });
+      } catch (e) {
+        enqueueSnackbar('Failed to delete this employee', { variant: 'error' });
       }
     },
-    [dispatch]
+    [dispatch, enqueueSnackbar]
   );
 
-  const handleEdit = React.useCallback((employeeId: string) => {
-    console.log('Edit employeeId', employeeId);
-  }, []);
+  const handleEdit = React.useCallback(
+    (employeeId: string) => {
+      if (employeeId) {
+        router.push(`/employee/edit/${employeeId}`);
+      }
+    },
+    [router]
+  );
+
+  const handleAdd = React.useCallback(() => {
+    router.push('/employee/add');
+  }, [router]);
 
   const handleChangeViewMode = () => {
     setIsGridMode((oldMode) => !oldMode);
@@ -37,7 +55,13 @@ function ListEmployee({ employees }: Props) {
   return (
     <Container className={styles.container}>
       <Box className={styles.headerBox}>
-        <Button variant='contained' className={styles.addButton}>Add employees</Button>
+        <Button
+          variant="contained"
+          className={styles.addButton}
+          onClick={handleAdd}
+        >
+          Add employees
+        </Button>
         <IconButton aria-label="delete" onClick={handleChangeViewMode}>
           {isGridMode ? (
             <TocIcon htmlColor="purple" />

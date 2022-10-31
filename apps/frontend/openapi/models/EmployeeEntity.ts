@@ -9,6 +9,6 @@ export type EmployeeEntity = {
     email: string;
     number: string;
     gender: string;
-    photo: string;
+    photo?: string;
 };
 

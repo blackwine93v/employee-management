@@ -30,8 +30,4 @@ export class CreateEmployeeDto {
   @ApiProperty({ enum: Gender })
   @IsEnum(Gender)
   gender: Gender;
-
-  @ApiProperty()
-  @IsUrl()
-  photo: string;
 }

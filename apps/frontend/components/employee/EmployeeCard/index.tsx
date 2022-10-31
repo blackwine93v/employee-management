@@ -12,6 +12,7 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import { EmployeeEntity } from 'apps/frontend/openapi';
 import React from 'react';
 import styles from './styles.module.scss';
+import { getPhotoURL } from 'apps/frontend/helpers/utils';
 
 interface Props {
   employee: EmployeeEntity;
@@ -25,8 +26,8 @@ function EmployeeCard({ employee, onDelete, onEdit }: Props) {
       <CardMedia
         component="img"
         height="120"
-        image={employee.photo}
-        alt="green iguana"
+        image={getPhotoURL(employee.photo)}
+        alt="photo"
       />
       <CardContent>
         <Typography fontSize={14}>

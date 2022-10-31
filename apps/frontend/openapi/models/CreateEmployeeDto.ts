@@ -8,7 +8,6 @@ export type CreateEmployeeDto = {
     email: string;
     number: string;
     gender: CreateEmployeeDto.gender;
-    photo: string;
 };
 
 export namespace CreateEmployeeDto {

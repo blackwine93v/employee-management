@@ -1,7 +1,8 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import store from '../redux/store';
 import { Provider } from 'react-redux';
+import { SnackbarProvider } from 'notistack';
+import store from '../redux/store';
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -12,7 +13,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
       </Head>
       <main className="app">
         <Provider store={store}>
-          <Component {...pageProps} />
+          <SnackbarProvider maxSnack={3}>
+            <Component {...pageProps} />
+          </SnackbarProvider>
         </Provider>
       </main>
     </>

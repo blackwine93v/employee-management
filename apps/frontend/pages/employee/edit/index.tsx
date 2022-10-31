@@ -1,9 +1,8 @@
-import React from 'react'
+import EditEmployee from 'apps/frontend/components/employee/EditEmployee';
+import React from 'react';
 
 function EmployeeEditPage() {
-  return (
-    <div>EmployeeEditPage</div>
-  )
+  return <EditEmployee />;
 }
 
-export default EmployeeEditPage
+export default EmployeeEditPage;

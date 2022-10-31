@@ -14,6 +14,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import { EmployeeEntity } from 'apps/frontend/openapi';
 import styles from './styles.module.scss';
+import { getPhotoURL } from 'apps/frontend/helpers/utils';
 
 interface Props {
   employees: EmployeeEntity[];
@@ -43,7 +44,7 @@ function TableViewEmployee({ employees, onDelete, onEdit }: Props) {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                <Avatar src={row.photo} alt="photo" variant="square"/>
+                <Avatar src={getPhotoURL(row.photo)} alt="photo" variant="square"/>
               </TableCell>
               <TableCell>{row.first_name}</TableCell>
               <TableCell>{row.last_name}</TableCell>

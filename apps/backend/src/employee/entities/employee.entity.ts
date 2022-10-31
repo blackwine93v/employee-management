@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -27,8 +27,8 @@ export class EmployeeEntity {
   @Column()
   gender: string;
 
-  @ApiProperty()
-  @Column()
-  photo: string;
+  @ApiPropertyOptional()
+  @Column({ nullable: true })
+  photo?: string;
 }
 

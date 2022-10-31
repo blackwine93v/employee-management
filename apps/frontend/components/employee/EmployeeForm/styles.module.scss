@@ -1,0 +1,35 @@
+.container {
+  max-width: 500px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .fieldBox {
+    display: flex;
+    align-items: center;
+    margin: 12px 0px;
+
+    .label {
+      margin-right: 24px;
+      width: 100px;
+      font-size: 14px;
+    }
+    .field {
+      height: 80px;
+      .input, .input input {
+        width: 300px;
+      }
+      .error {
+        font-size: 12px;
+        color: red;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .submitButton {
+    color: purple;
+    border-color: purple;
+    float: right;
+  }
+}

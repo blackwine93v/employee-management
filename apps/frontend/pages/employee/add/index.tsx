@@ -1,9 +1,8 @@
-import React from 'react'
+import AddEmployee from 'apps/frontend/components/employee/AddEmployee';
+import React from 'react';
 
 function EmployeeAddPage() {
-  return (
-    <div>EmployeeAddPage</div>
-  )
+  return <AddEmployee />;
 }
 
-export default EmployeeAddPage
+export default EmployeeAddPage;

@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Paper, Typography } from '@mui/material';
 import React from 'react';
 import styles from './styles.module.scss';
 
@@ -9,9 +9,9 @@ export function withLayout<P>(Component: React.ComponentType<P>) {
         <Box className={styles.headerBox}>
           <Typography>Employee Manager</Typography>
         </Box>
-        <Container className={styles.content}>
+        <Paper className={styles.content}>
           <Component {...props} />
-        </Container>
+        </Paper>
       </Container>
     );
   };
