@@ -63,7 +63,7 @@ function ListEmployee({ employees }: Props) {
             >
               Add employees
             </Button>
-            <IconButton aria-label="delete" onClick={changeMode}>
+            <IconButton data-testid='switch-viewmode' onClick={changeMode}>
               {mode === ViewMode.Grid ? (
                 <TocIcon htmlColor="purple" />
               ) : (

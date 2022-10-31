@@ -47,6 +47,7 @@ function AddEmployee() {
           className={styles.buttonListView}
           variant="contained"
           onClick={handleOpenListView}
+          data-testid='AddEmployee-viewlist-btn'
         >
           List View
         </Button>

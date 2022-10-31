@@ -41,7 +41,7 @@ const renderTextField = (
 ) => (
   <Field name={fieldName} validate={validate}>
     {({ input, meta }) => (
-      <Box className={styles.fieldBox}>
+      <Box className={styles.fieldBox} data-testid={`EmployeeForm-${fieldName}`}>
         <Typography className={styles.label}>{fieldLabel}</Typography>
         <Box className={styles.field}>
           <TextField className={styles.input} variant="filled" {...input} />
@@ -57,7 +57,7 @@ const renderTextField = (
 const renderDropdownField = (fieldName, fieldLabel, validate) => (
   <Field name={fieldName} validate={validate}>
     {({ input, meta }) => (
-      <Box className={styles.fieldBox}>
+      <Box className={styles.fieldBox} data-testid={`EmployeeForm-${fieldName}`}>
         <Typography className={styles.label}>{fieldLabel}</Typography>
         <Box className={styles.field}>
           <Select className={styles.input} {...input}>
@@ -75,7 +75,7 @@ const renderDropdownField = (fieldName, fieldLabel, validate) => (
 
 function EmployeeForm({ buttonText, onSubmit, values }: Props) {
   return (
-    <Paper className={styles.container}>
+    <Paper className={styles.container} data-testid='EmployeeForm'>
       <Form
         onSubmit={onSubmit}
         initialValues={
@@ -130,6 +130,7 @@ function EmployeeForm({ buttonText, onSubmit, values }: Props) {
               className={styles.submitButton}
               variant="outlined"
               type="submit"
+              data-testid='EmployeeForm-submit-button'
             >
               {buttonText || 'Submit'}
             </Button>

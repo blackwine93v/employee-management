@@ -54,6 +54,7 @@ function EditEmployee({ employee }: Props) {
           className={styles.buttonListView}
           variant="contained"
           onClick={handleOpenListView}
+          data-testid='EditEmployee-viewlist-btn'
         >
           List View
         </Button>
