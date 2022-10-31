@@ -36,14 +36,13 @@ describe('EmployeeController', () => {
         first_name: 'first_name',
         last_name: 'last_name',
         number: '+942123232',
-        gender: 'M',
-        photo: 'http://aaa.com/photo.jpg',
+        gender: 'M' as any,
         email: 'email@abc.com',
       };
 
       const result: CreateEmployeeDto & EmployeeEntity = {
         ...payload,
-        id: '1',
+        id: 1,
       };
 
       jest.spyOn(service, 'create').mockImplementation(async () => result);
@@ -62,7 +61,7 @@ describe('EmployeeController', () => {
           gender: 'M',
           photo: 'http://aaa.com/photo.jpg',
           email: 'email@abc.com',
-          id: '1',
+          id: 1,
         },
       ];
       jest.spyOn(service, 'findAll').mockImplementation(async () => result);
@@ -80,11 +79,11 @@ describe('EmployeeController', () => {
         gender: 'M',
         photo: 'http://aaa.com/photo.jpg',
         email: 'email@abc.com',
-        id: '1',
+        id: 1,
       };
       jest.spyOn(service, 'findOne').mockImplementation(async () => result);
 
-      expect(await controller.findOne('1')).toBe(result);
+      expect(await controller.findOne(1)).toBe(result);
     });
   });
 
@@ -102,19 +101,19 @@ describe('EmployeeController', () => {
         gender: 'M',
         photo: 'http://aaa.com/photo.jpg',
         email: 'email@abc.com',
-        id: '1',
+        id: 1,
       };
 
       jest.spyOn(service, 'update').mockImplementation(async () => result);
 
-      expect(await controller.update('1', payload)).toBe(result);
+      expect(await controller.update(1, payload)).toBe(result);
     });
   });
 
   describe('delete', () => {
     it('should delete an employee with its id', async () => {
       jest.spyOn(service, 'remove').mockImplementation(jest.fn());
-      controller.remove('1');
+      controller.remove(1);
 
       expect(service.remove).toBeCalled();
     });
