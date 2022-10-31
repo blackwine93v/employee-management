@@ -5,7 +5,7 @@ import AppsIcon from '@mui/icons-material/Apps';
 import { withLayout } from '../withLayout';
 import { EmployeeEntity } from 'apps/frontend/openapi';
 import { useAppDispatch } from 'apps/frontend/redux/hook';
-import { deleteEmployee } from 'apps/frontend/pages/employee/reduxSlice';
+import { deleteEmployee } from 'apps/frontend/components/employee/reduxSlice';
 import GridEmployee from './GridView';
 import TableViewEmployee from './TableView';
 import styles from './styles.module.scss';

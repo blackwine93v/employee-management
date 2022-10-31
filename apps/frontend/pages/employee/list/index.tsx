@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../../redux/hook';
-import { fetchAllEmployee } from '../reduxSlice';
+import { fetchAllEmployee } from '../../../components/employee/reduxSlice';
 import ListEmployee from '../../../components/employee/ListEmployee';
 
 function EmployeeListPage() {

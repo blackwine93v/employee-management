@@ -3,7 +3,7 @@ import {
   configureStore,
   PreloadedState,
 } from '@reduxjs/toolkit';
-import employeeReducer from '../pages/employee/reduxSlice';
+import employeeReducer from '../components/employee/reduxSlice';
 
 const rootReducer = combineReducers({
   employee: employeeReducer,

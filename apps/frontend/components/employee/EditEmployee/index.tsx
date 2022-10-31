@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Container } from '@mui/material';
 import EmployeeForm, { EmployeeFormStateValues } from '../EmployeeForm';
 import { useAppDispatch } from 'apps/frontend/redux/hook';
-import { updateEmployee } from 'apps/frontend/pages/employee/reduxSlice';
+import { updateEmployee } from 'apps/frontend/components/employee/reduxSlice';
 import { CreateEmployeeDto, EmployeeEntity } from 'apps/frontend/openapi';
 import { useSnackbar } from 'notistack';
 import { useRouter } from 'next/router';

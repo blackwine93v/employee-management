@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 
 import type { AppStore, RootState } from 'apps/frontend/redux/store';
 // As a basic setup, import your same slice reducers
-import employeeReducer from 'apps/frontend/pages/employee/reduxSlice';
+import employeeReducer from 'apps/frontend/components/employee/reduxSlice';
 import ViewModeProvider from '../context/ViewModeContext';
 import { SnackbarProvider } from 'notistack';
 
