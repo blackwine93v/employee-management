@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { SnackbarProvider } from 'notistack';
 import store from '../redux/store';
 import './styles.css';
+import { ViewModeProvider } from '../context/ViewModeContext';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,9 +14,11 @@ function CustomApp({ Component, pageProps }: AppProps) {
       </Head>
       <main className="app">
         <Provider store={store}>
-          <SnackbarProvider maxSnack={3}>
-            <Component {...pageProps} />
-          </SnackbarProvider>
+          <ViewModeProvider>
+            <SnackbarProvider maxSnack={3}>
+              <Component {...pageProps} />
+            </SnackbarProvider>
+          </ViewModeProvider>
         </Provider>
       </main>
     </>

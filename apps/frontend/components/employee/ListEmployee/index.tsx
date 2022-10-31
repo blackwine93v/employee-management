@@ -11,13 +11,16 @@ import TableViewEmployee from './TableView';
 import styles from './styles.module.scss';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
+import {
+  ViewMode,
+  ViewModeContext,
+} from 'apps/frontend/context/ViewModeContext';
 
 interface Props {
   employees: EmployeeEntity[];
 }
 
 function ListEmployee({ employees }: Props) {
-  const [isGridMode, setIsGridMode] = React.useState(true);
   const dispatch = useAppDispatch();
   const { enqueueSnackbar } = useSnackbar();
   const router = useRouter();
@@ -48,43 +51,43 @@ function ListEmployee({ employees }: Props) {
     router.push('/employee/add');
   }, [router]);
 
-  const handleChangeViewMode = () => {
-    setIsGridMode((oldMode) => !oldMode);
-  };
-
   return (
-    <Container className={styles.container}>
-      <Box className={styles.headerBox}>
-        <Button
-          variant="contained"
-          className={styles.addButton}
-          onClick={handleAdd}
-        >
-          Add employees
-        </Button>
-        <IconButton aria-label="delete" onClick={handleChangeViewMode}>
-          {isGridMode ? (
-            <TocIcon htmlColor="purple" />
-          ) : (
-            <AppsIcon htmlColor="purple" />
-          )}
-        </IconButton>
-      </Box>
+    <ViewModeContext.Consumer>
+      {({ mode, changeMode }) => (
+        <Container className={styles.container}>
+          <Box className={styles.headerBox}>
+            <Button
+              variant="contained"
+              className={styles.addButton}
+              onClick={handleAdd}
+            >
+              Add employees
+            </Button>
+            <IconButton aria-label="delete" onClick={changeMode}>
+              {mode === ViewMode.Grid ? (
+                <TocIcon htmlColor="purple" />
+              ) : (
+                <AppsIcon htmlColor="purple" />
+              )}
+            </IconButton>
+          </Box>
 
-      {isGridMode ? (
-        <GridEmployee
-          employees={employees}
-          onDelete={handleDelete}
-          onEdit={handleEdit}
-        />
-      ) : (
-        <TableViewEmployee
-          employees={employees}
-          onDelete={handleDelete}
-          onEdit={handleEdit}
-        />
+          {mode === ViewMode.Grid ? (
+            <GridEmployee
+              employees={employees}
+              onDelete={handleDelete}
+              onEdit={handleEdit}
+            />
+          ) : (
+            <TableViewEmployee
+              employees={employees}
+              onDelete={handleDelete}
+              onEdit={handleEdit}
+            />
+          )}
+        </Container>
       )}
-    </Container>
+    </ViewModeContext.Consumer>
   );
 }
 
